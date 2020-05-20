@@ -13,9 +13,14 @@ class Cell
 		self
 	end
 
+	def unlink(cell, bidi=true)
+		@links.delete(cell)
+		cell.unlink(self, false) if bidi
+		self
+	end
+
 	def links
 		@links.keys
-
 	end
 
 	def linked?(cell)
@@ -28,6 +33,6 @@ class Cell
 		list << south if south
 		list << east if east
 		list << west if west
+		list
 	end
 end
-

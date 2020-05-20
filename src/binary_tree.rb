@@ -6,8 +6,9 @@ class BinaryTree
 			neighbours << cell.north if cell.north
 			neighbours << cell.east if cell.east
 
-			index = rand(neighbours.length)
-			neighbour = neighbours[index]
+			neighbour=neighbours.sample
+
+			cell.link(neighbour) if neighbour
 		end
 
 		grid
